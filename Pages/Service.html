@@ -90,13 +90,40 @@
             font-size: 18px;
             transition: 0.3s;
         }.buttons button:hover {
-            background-color: white;
-            color: green;
+            border-color: black;
         }
 
-        .Hotline {
-            margin-top: 80px;
+        .centers-container {
+            display: flex;
+            gap: 90px;
+            justify-content: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
         }
+
+        .center-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 280px;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }.center-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+        }.center-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }.center-card .label {
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            background: white;
+        }
+
     </style>
 </head>
 <body>
@@ -112,5 +139,28 @@
             <a href="../AdminPage/Login.html">Login</a>
         </nav>
     </header>
+
+    <section class="Welcomepage background">
+        <h3>Welcome to</h3>
+        <h1>Services Page</h1>
+
+        <div class="centers-container">
+            <a href="Centers/Center1.html" class="center-card" target="_blank">
+                <img src="../Images/CamayaIMG1Z2.png" alt="Center 1">
+                <div class="label">Center 1</div>
+            </a>
+
+            <a href="Centers/Center2.html" class="center-card" target="_blank">
+                <img src="../Images/CAMAYAZ2Tes1.png" alt="Center 2">
+                <div class="label">Center 2</div>
+            </a>
+
+            <a href="Centers/Center3.html" class="center-card" target="_blank">
+                <img src="../Images/CAMAYAH3.png" alt="Center 3">
+                <div class="label">Center 3</div>
+            </a>
+        </div>
+    </section>
+
 </body>
 </html>
