@@ -8,9 +8,10 @@
     <style>
         body {
             margin: 0;
-            background-color: white;
-            user-select: none;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
+            background-image: url('../../Images/background.png');
+            background-size: cover;
+            background-position: center;
         }
 
         header {
@@ -43,6 +44,141 @@
             text-decoration: underline;
             color: green;
         }
+
+        .main-box {
+            width: 85%;
+            background-color: #006400;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 4px;
+            color: white;
+        }.main-box h2 {
+            text-align: center;
+            font-size: 45px;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+       
+        .layout {
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        
+        .left-menu {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }.left-menu button {
+            width: 100%;
+            padding: 12px 0;
+            border: none;
+            cursor: pointer;
+            background: white;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 18px;
+            text-align: center;
+        }.left-menu button.active {
+            background: #b7ff6b;
+        }.left-menu button:hover {
+            background: #dfffc1;
+        }
+
+       
+        .form-area {
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .form-area input,
+        .form-area textarea,
+        .form-area select {
+            width: 97.6%;
+            padding: 14px;
+            background: white;
+            border: none;
+            font-size: 18px;
+            border-radius: 4px;
+        }.form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        textarea {
+            height: 180px;
+            resize: none;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .btn-back,
+        .btn-confirm {
+            padding: 14px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            background: white;
+            border-radius: 4px;
+        }
+
+        /*Popup*/
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(2px);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }.popup-box {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px 40px;
+            border-radius: 10px;
+            text-align: center;
+            width: 450px;
+        }.popup-box h2 {
+            color: black;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }.popup-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }.no-btn {
+            background: red;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }.yes-btn {
+            background: yellow;
+            color: black;
+            padding: 12px 30px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }.no-btn:hover {
+            opacity: 0.8;
+        }.yes-btn:hover {
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -56,5 +192,101 @@
             <a href="../Service.html" style="color: green; text-decoration-line: underline;">Service</a>
         </nav>
     </header>
+
+    <div class="main-box">
+
+        <h2>SCHEDULE CHECK UP</h2>
+
+        <div class="layout">
+
+            <!--Panel Left Main-->
+            <div class="left-menu">
+                <a href="#seniors" style="text-decoration: none;"><button class="menu-btn active">SENIORS</button></a>
+                <a href="#teens-adult" style="text-decoration: none;"><button class="menu-btn">TEENS/ADULT</button></a>
+                <a href="#infants" style="text-decoration: none;"><button class="menu-btn">0-12 MONTHS</button></a>
+                <a href="#vaccine" style="text-decoration: none;"><button class="menu-btn">VACCINE</button></a>
+                <a href="#tb" style="text-decoration: none;"><button class="menu-btn">TB</button></a>
+                <a href="#vitamins" style="text-decoration: none;"><button class="menu-btn">GET VITAMINS/MEDICINES</button></a>
+            </div>
+
+            
+        <div class="form-area">
+            <input type="text" placeholder="Fullname">
+
+            <div class="form-row">
+                <input type="number" placeholder="Age">
+                <input type="text" placeholder="Gender">
+                <input type="number" placeholder="Contact number">
+            </div>
+
+            <div class="form-row">
+                <input type="date" placeholder="Birthdate">
+                <input type="text" placeholder="Birthplace">
+            </div>
+
+            <input type="text" placeholder="Address">
+            
+            
+            <h3>Date appointment</h3>
+            <div class="form-row">
+                <input type="date" placeholder="Date of appointment">
+            </div>
+
+            <textarea placeholder="Purpose/Reason"></textarea>
+
+            <div class="buttons">
+                <a href="../Service.html" style="text-decoration:none;">
+                    <button class="btn-back">BACK</button>
+                </a>
+                <a href="../Service.html" style="text-decoration:none;">
+                    <button class="btn-confirm">APPOINTMENT CONFIRM</button>
+                </a>
+            </div>
+        </div>
+
+        <!--Popup panel-->
+        <div id="confirmPopup" class="popup-overlay">
+            <div class="popup-box">
+                <h2>Are you sure you want to confirm your appointment?</h2>
+
+                <div class="popup-buttons">
+                    <button id="cancelBtn" class="no-btn">NO</button>
+                    <button id="yesBtn" class="yes-btn">YES</button>
+                </div>
+            </div>
+        </div>
 </body>
+
+    <!--Panel Left Script-->
+    <script>
+        document.querySelectorAll('.menu-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            }); 
+        });
+    </script>
+
+
+    <!--Popup Script-->
+    <script>
+        const popup = document.getElementById("confirmPopup");
+        const confirmBtn = document.querySelector(".btn-confirm");
+        const cancelBtn = document.getElementById("cancelBtn");
+        const yesBtn = document.getElementById("yesBtn");
+
+        
+        confirmBtn.addEventListener("click", function(event) {
+            event.preventDefault(); 
+            popup.style.display = "flex";
+        });
+        
+        cancelBtn.addEventListener("click", function() {
+            popup.style.display = "none";
+        });
+
+        yesBtn.addEventListener("click", function() {
+            window.location.href = "../Service.html";
+        });
+    </script>
 </html>
