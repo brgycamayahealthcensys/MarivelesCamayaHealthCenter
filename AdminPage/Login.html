@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="Images/Logo.png">
+    <title>MarivelesCamayaHealthCenter</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: white;
+            user-select: none;
+            font-family: Arial, sans-serif;
+        }
 
+        header {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            color: black;
+            border-bottom: 1px solid #ccc;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }header img {
+            width: 60px;
+            height: 60px;
+        }header h1 {
+            font-size: 30px;
+            color: green;
+            margin-left: 10px;
+        }header nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }header nav a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }header nav a:hover {
+            text-decoration: underline;
+            color: green;
+        }
+
+        .create-bg {
+            background: url('../Images/background.png') center/cover no-repeat;
+            background-color: rgba(10, 77, 10, 0.45);
+            background-blend-mode: overlay;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }.create-panel {
+            width: 360px;
+            padding: 35px 40px;
+            background: rgba(255, 255, 255, 0.28);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            gap: 18px; 
+        }.create-panel h2 {
+            font-size: 28px;
+            font-weight: 900;
+            color: #0d3b0d;
+            margin: 0 0 10px 0;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 14px 16px;
+
+            border: none;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.92);
+
+            font-size: 15px;
+            color: #333;
+            outline: none;
+
+            box-sizing: border-box;
+        }.input-field::placeholder {
+            color: #777;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 12px;    
+            margin-top: 10px;
+        }.button-row a {
+            flex: 1;      
+        }
+        
+        .back-btn, .save-btn {
+            width: 100%;
+            padding: 13px 0;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }.back-btn {
+            background: #e8e8e8;
+            color: #0a3a0a;
+        }.back-btn:hover {
+            background: #dcdcdc;
+        }
+        
+        .save-btn {
+            background: #0a3a0a;
+            color: white;
+        }.save-btn:hover {
+            background: #0c4d0c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="../Images/Logo.png" alt="Logo">
+            <h1>CAMAYA</h1>
+        </div>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="../Pages/Service.html">Service</a>
+            <a href="../Pages/History.html">History</a>
+            <a href="Login.html" style="color: green; text-decoration: underline;">Login</a>
+        </nav>
+    </header>
+
+    <div class="create-bg">
+    <div class="create-panel">
+        <h2>LOG IN ACCOUNT ADMIN</h2>
+
+        <select class="input-field">
+            <option disabled selected>choose center</option>
+            <option>Center 1 | Zone 2</option>
+            <option>Center 2 | Tesda Road</option>
+            <option>Center 3 | Zone 6</option>
+        </select>
+
+        <input type="text" placeholder="username" class="input-field">
+        <input type="password" placeholder="password" class="input-field">
+
+        <div class="button-row">
+            <a href="../Pages/Service.html" style="width: 45%; text-decoration: none;"><button class="back-btn">BACK</button></a>
+            <a href="AdminDashboard.html" style="width: 45%; text-decoration: none;"><button class="save-btn">LOGIN</button></a>
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>
