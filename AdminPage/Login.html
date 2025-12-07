@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="Images/Logo.png">
     <title>MarivelesCamayaHealthCenter</title>
+
     <style>
         body {
             margin: 0;
@@ -24,25 +25,32 @@
             position: sticky;
             top: 0;
             z-index: 10;
-        }header img {
-            width: 60px;
-            height: 60px;
-        }header h1 {
-            font-size: 30px;
-            color: green;
-            margin-left: 10px;
-        }header nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }header nav a {
+        }
+        header img { 
+            width: 60px; 
+            height: 60px; 
+        }
+        header h1 { 
+            font-size: 30px; 
+            color: green; 
+            margin-left: 10px; 
+        }
+        header nav { 
+            display: flex; 
+            align-items: 
+            center; 
+            gap: 20px; 
+        }
+        header nav a {
             color: black;
             text-decoration: none;
             font-weight: bold;
-        }header nav a:hover {
-            text-decoration: underline;
-            color: green;
         }
+        header nav a:hover { 
+            text-decoration: underline; 
+            color: green; 
+        }
+
 
         .create-bg {
             background: url('../Images/background.png') center/cover no-repeat;
@@ -54,7 +62,8 @@
             align-items: center;
             justify-content: center;
             padding: 40px 20px;
-        }.create-panel {
+        }
+        .create-panel {
             width: 360px;
             padding: 35px 40px;
             background: rgba(255, 255, 255, 0.28);
@@ -75,26 +84,21 @@
         .input-field {
             width: 100%;
             padding: 14px 16px;
-
             border: none;
             border-radius: 6px;
             background: rgba(255, 255, 255, 0.92);
-
             font-size: 15px;
             color: #333;
             outline: none;
-
             box-sizing: border-box;
-        }.input-field::placeholder {
-            color: #777;
+        }.input-field::placeholder { 
+            color: #777; 
         }
 
-        .button-row {
-            display: flex;
-            gap: 12px;    
-            margin-top: 10px;
-        }.button-row a {
-            flex: 1;      
+        .button-row { 
+            display: flex; 
+            gap: 12px; 
+            margin-top: 10px; 
         }
         
         .back-btn, .save-btn {
@@ -105,55 +109,103 @@
             border-radius: 6px;
             cursor: pointer;
             font-size: 15px;
-        }.back-btn {
+        }
+
+        .back-btn {
             background: #e8e8e8;
             color: #0a3a0a;
-        }.back-btn:hover {
-            background: #dcdcdc;
+        }.back-btn:hover { 
+            background: #dcdcdc; 
         }
-        
+
+
         .save-btn {
             background: #0a3a0a;
             color: white;
-        }.save-btn:hover {
-            background: #0c4d0c;
+        }.save-btn:hover { 
+            background: #0c4d0c; 
         }
     </style>
 </head>
 <body>
-    <header>
-        <div style="display: flex; align-items: center; gap: 10px;">
-            <img src="../Images/Logo.png" alt="Logo">
-            <h1>CAMAYA</h1>
-        </div>
-        <nav>
-            <a href="../index.html">Home</a>
-            <a href="../Pages/Service.html">Service</a>
-            <a href="../Pages/History.html">History</a>
-            <a href="Login.html" style="color: green; text-decoration: underline;">Login</a>
-        </nav>
-    </header>
 
-    <div class="create-bg">
-    <div class="create-panel">
-        <h2>LOG IN ACCOUNT ADMIN</h2>
+<header>
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="../Images/Logo.png" alt="Logo">
+        <h1>CAMAYA</h1>
+    </div>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../Pages/Service.html">Service</a>
+        <a href="../Pages/History.html">History</a>
+        <a href="Login.html" style="color: green; text-decoration: underline;">Login</a>
+    </nav>
+</header>
 
-        <select class="input-field">
-            <option disabled selected>choose center</option>
-            <option>Center 1 | Zone 2</option>
-            <option>Center 2 | Tesda Road</option>
-            <option>Center 3 | Zone 6</option>
-        </select>
+<div class="create-bg">
+<div class="create-panel">
+    <h2>LOG IN ACCOUNT ADMIN</h2>
 
-        <input type="text" placeholder="username" class="input-field">
-        <input type="password" placeholder="password" class="input-field">
+    <select id="centerSelect" class="input-field">
+        <option disabled selected>choose center</option>
+        <option value="1">Center 1 | Zone 2</option>
+        <option value="2">Center 2 | Tesda Road</option>
+        <option value="3">Center 3 | Zone 6</option>
+    </select>
 
-        <div class="button-row">
-            <a href="../Pages/Service.html" style="width: 45%; text-decoration: none;"><button class="back-btn">BACK</button></a>
-            <a href="AdminDashboard.html" style="width: 45%; text-decoration: none;"><button class="save-btn">LOGIN</button></a>
-        </div>
+    <input type="text" id="username" placeholder="username" class="input-field">
+    <input type="password" id="password" placeholder="password" class="input-field">
+
+    <div class="button-row">
+        <a href="../Pages/Service.html" style="width: 45%; text-decoration: none;">
+            <button class="back-btn">BACK</button>
+        </a>
+
+        <button onclick="loginAdmin()" class="save-btn" style="width: 45%;">LOGIN</button>
     </div>
 </div>
+</div>
+
+
+<script>
+function loginAdmin() {
+
+    const center = document.getElementById("centerSelect").value;
+    const user = document.getElementById("username").value.trim();
+    const pass = document.getElementById("password").value;
+
     
+
+    const accounts = {
+        "AdminC1": "1", //Password CamayaAdmin
+        "AdminC2": "2", //Password CamayaAdmin 
+        "AdminC3": "3"  //Password CamayaAdmin 
+    };
+    
+
+    if (!center || user === "" || pass === "") {
+        alert("Please fill out all fields.");
+        return;
+    }
+
+    if (!accounts[user]) {
+        alert("Invalid username.");
+        return;
+    }
+
+    if (pass !== "CamayaAdmin") {
+        alert("Incorrect password.");
+        return;
+    }
+
+    if (accounts[user] !== center) {
+        alert("Wrong center admin!");
+        return;
+    }
+
+    window.location.href = "AdminDashboard.html";
+}
+</script>
+
 </body>
 </html>
