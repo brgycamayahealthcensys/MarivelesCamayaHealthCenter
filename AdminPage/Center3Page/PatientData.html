@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../Images/Logo.png">
+    <title>Center 3 Dashboard</title>
+
+    <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        user-select: none;
+        background-image: url('../../Images/background.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .container {
+        display: flex;
+        height: 100vh;
+    }
+
+    .sidebar {
+        width: 240px;
+        background-color: #0a5f0a;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 0;
+        transition: width 0.3s ease, padding 0.3s ease;
+    }.sidebar.collapsed {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+    }.sidebar .logo {
+        text-align: center;
+        margin-bottom: 40px;
+    }.sidebar .logo img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding-left: 35px;
+    }.menu-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 17px;
+        cursor: pointer;
+        opacity: 0.9;
+    }.menu-item:hover {
+        opacity: 1;
+    }.menu-item img {
+        width: 24px;
+        height: 24px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="../../Images/Logo.png">
+            </div>
+            <div class="menu">
+
+                <div class="menu-item" onclick="window.location.href='Center1Dashboard.html'">
+                    <img src="../../Images/Icon.png">
+                    <span>Dashboard</span>
+                </div>
+
+                <div class="menu-item" onclick="window.location.href='PatientData.html'">
+                    <img src="../../Images/Icon.png">
+                    <span>Patient Data</span>
+                </div>
+
+                <div class="menu-item" onclick="window.location.href='Profile.html'">
+                    <img src="../../Images/Icon.png">
+                    <span>Profile</span>
+                </div>
+
+                <div class="menu-item" onclick="window.location.href='../Login.html'">
+                    <img src="../../Images/Icon.png">
+                    <span>Logout</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
