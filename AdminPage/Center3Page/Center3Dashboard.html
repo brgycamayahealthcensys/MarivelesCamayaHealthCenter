@@ -206,23 +206,25 @@
 
     let count = 1;
 
-    appointments.forEach(item => {
-        const row = document.createElement("tr");
+    appointments
+        .filter(item => item.section === "Center 3") 
+        .forEach(item => {
+            const row = document.createElement("tr");
 
-        row.innerHTML = `
-            <td>${count++}</td>
-            <td>${item.fullname}</td>
-            <td>${item.section || "N/A"}</td>
-            <td>${item.purpose}</td>
-            <td>
-                <div class="action-buttons">
-                    <button class="approve">✔</button>
-                    <button class="deny">✖</button>
-                </div>
-            </td>
-        `;
+            row.innerHTML = `
+                <td>${count++}</td>
+                <td>${item.fullname}</td>
+                <td>${item.section || "N/A"}</td>
+                <td>${item.purpose}</td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="approve">✔</button>
+                        <button class="deny">✖</button>
+                    </div>
+                </td>
+            `;
 
-        appointmentTable.appendChild(row);
-    });
+            appointmentTable.appendChild(row);
+        });
 </script>
 </html>
