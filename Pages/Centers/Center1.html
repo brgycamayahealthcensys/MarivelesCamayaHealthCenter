@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../../Images/Logo.png">
     <title>Schedule Checkup</title>
 
     <style>
@@ -41,9 +42,6 @@
             color: green;
             text-decoration: underline;
         }
-
-       
-
 
         .main-box {
             width: 85%;
@@ -290,7 +288,38 @@
         });
 
         yesBtn.addEventListener("click", function() {
+            
+            let fullname = document.querySelectorAll("input")[0].value;
+            let age = document.querySelectorAll("input")[1].value;
+            let gender = document.querySelectorAll("input")[2].value;
+            let contactNumber = document.querySelectorAll("input")[3].value;
+            let birthdate = document.querySelectorAll("input")[4].value;
+            let birthplace = document.querySelectorAll("input")[5].value;
+            let address = document.querySelectorAll("input")[6].value;
+            let appDate = document.querySelectorAll("input")[7].value;
+            let purpose = document.querySelector("textarea").value;
+
+            const appointment = {
+                fullname,
+                age,
+                gender,
+                contactNumber,
+                birthdate,
+                birthplace,
+                address,
+                appDate,
+                purpose,
+                section: "Center 1"
+            };
+
+            let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+            appointments.push(appointment);
+            localStorage.setItem("appointments", JSON.stringify(appointments));
+
             window.location.href = "../Service.html";
         });
     </script>
+
+    
+   
 </html>
