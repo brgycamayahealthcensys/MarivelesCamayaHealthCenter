@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="Images/Logo.png">
+    <link rel="icon" type="image/png" href="../Images/Logo.png">
     <title>MarivelesCamayaHealthCenter</title>
 
     <style>
@@ -168,53 +168,53 @@
 
 </body>
 
-<script>
-function loginAdmin() {
+    <script>
+        function loginAdmin() {
 
-    const center = document.getElementById("centerSelect").value;
-    const user = document.getElementById("username").value.trim();
-    const pass = document.getElementById("password").value;
+            const center = document.getElementById("centerSelect").value;
+            const user = document.getElementById("username").value.trim();
+            const pass = document.getElementById("password").value;
 
-    
-    const accounts = {
-        "AdminC1": "1", //Password CamayaAdmin
-        "AdminC2": "2", //Password CamayaAdmin
-        "AdminC3": "3" //Password CamayaAdmin
-    };
+            
+            const accounts = {
+                "AdminC1": "1", //Password CamayaAdmin
+                "AdminC2": "2", //Password CamayaAdmin
+                "AdminC3": "3" //Password CamayaAdmin
+            };
 
-    
-    const dashboardPages = {
-        "1": "Center1Page/Center1Dashboard.html",
-        "2": "Center2Page/Center2Dashboard.html",
-        "3": "Center3Page/Center3Dashboard.html"
-    };
+            
+            const dashboardPages = {
+                "1": "Center1Page/Center1Dashboard.html",
+                "2": "Center2Page/Center2Dashboard.html",
+                "3": "Center3Page/Center3Dashboard.html"
+            };
 
-   
-    if (!center || user === "" || pass === "") {
-        alert("Please fill out all fields.");
-        return;
-    }
+        
+            if (!center || user === "" || pass === "") {
+                alert("Please fill out all fields.");
+                return;
+            }
 
-    
-    if (!accounts[user]) {
-        alert("Invalid username.");
-        return;
-    }
+            
+            if (!accounts[user]) {
+                alert("Invalid username.");
+                return;
+            }
 
-   
-    if (pass !== "CamayaAdmin") {
-        alert("Incorrect password.");
-        return;
-    }
+        
+            if (pass !== "CamayaAdmin") {
+                alert("Incorrect password.");
+                return;
+            }
 
-    
-    if (accounts[user] !== center) {
-        alert("Wrong center admin!");
-        return;
-    }
+            
+            if (accounts[user] !== center) {
+                alert("Wrong center admin!");
+                return;
+            }
 
-    
-    window.location.href = dashboardPages[center];
-}
-</script>
+            
+            window.location.href = dashboardPages[center];
+        }
+    </script>
 </html>
