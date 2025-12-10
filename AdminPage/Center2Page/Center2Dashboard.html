@@ -201,30 +201,65 @@
 </script>
 
 <script>
-    const appointments = JSON.parse(localStorage.getItem("appointments")) || [];
+    let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
     const appointmentTable = document.getElementById("appointmentTable");
 
-    let count = 1;
+    function saveAppointments() {
+        localStorage.setItem("appointments", JSON.stringify(appointments));
+    }
 
-    appointments
-        .filter(item => item.section === "Center 2") 
-        .forEach(item => {
-            const row = document.createElement("tr");
+    function renderTable() {
+        appointmentTable.innerHTML = "";
+        let count = 1;
 
-            row.innerHTML = `
-                <td>${count++}</td>
-                <td>${item.fullname}</td>
-                <td>${item.section || "N/A"}</td>
-                <td>${item.purpose}</td>
-                <td>
+        appointments
+            .filter(item => item.section === "Center 2" && item.deleted !== true)
+            .forEach((item) => {
+
+                const row = document.createElement("tr");
+
+                
+                let actionCell = `
                     <div class="action-buttons">
                         <button class="approve">✔</button>
                         <button class="deny">✖</button>
                     </div>
-                </td>
-            `;
+                `;
 
-            appointmentTable.appendChild(row);
-        });
+                if (item.approved === true) {
+                    actionCell = `<span style="color: green; font-weight: bold;">Accepted</span>`;
+                }
+
+                row.innerHTML = `
+                    <td>${count++}</td>
+                    <td>${item.fullname}</td>
+                    <td>${item.section || "N/A"}</td>
+                    <td>${item.purpose}</td>
+                    <td>${actionCell}</td>
+                `;
+
+                
+                if (!item.approved) {
+                    
+                    row.querySelector(".approve").addEventListener("click", () => {
+                        item.approved = true;
+                        saveAppointments();
+                        renderTable(); 
+                    });
+
+                    
+                    row.querySelector(".deny").addEventListener("click", () => {
+                        item.deleted = true;
+                        saveAppointments();
+                        renderTable();
+                    });
+                }
+
+                appointmentTable.appendChild(row);
+            });
+    }
+
+    
+    renderTable();
 </script>
 </html>
